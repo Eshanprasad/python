@@ -1,5 +1,5 @@
 """
-In Class C, if we want to call class B and class A feature methods
+Method resolution order - MRO
 """
 class A:
     def __init__(self):
@@ -18,15 +18,13 @@ class B:
 
 class C(B, A):
     def __init__(self):
-        super().feature()               #this calls Class B feature method according to MRO. B.feature(self) also works
-        A.feature(self)                 # this calls Class A feature method (works even if C doesn't inherit A). but passing "self" in paranthesis is a must.
         print("in C init")
 
 objC = C()
+objC.feature()     #calls feature method in B according to method resolution order MRO
 
 """
 output:
-in B feature
-in A feature
 in C init
+in B feature
 """
