@@ -1,5 +1,6 @@
-# python supports multiple Inheritance
-
+"""
+In Class C, if we want to also execute super class init method, we need to use super()
+"""
 class A:
     def __init__(self):
         self.variable_a = "A value"
@@ -17,11 +18,13 @@ class B:
 
 class C(B, A):
     def __init__(self):
+        super().__init__()          #this calls init method of class B according to MRO
         print("in C init")
 
 objC = C()
 
 """
 output:
+in B init
 in C init
 """
