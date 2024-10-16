@@ -23,3 +23,10 @@ class C(B, A):
         print("in C init")
 
 objC = C()
+
+"""
+output:
+in A init
+in B init
+in C init
+"""
