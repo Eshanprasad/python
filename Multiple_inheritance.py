@@ -1,5 +1,5 @@
 """
-In Class C, if we want to call Class A init method also
+In Class C, if we want to call class B and class A feature methods
 """
 class A:
     def __init__(self):
@@ -18,15 +18,15 @@ class B:
 
 class C(B, A):
     def __init__(self):
-        A.__init__(self)              # this calls class A init method. In this case, you are not relying on inheritance. Instead, you are accessing A's method directly. This works even if C is not inheriting A.
-        super().__init__()            #this calls init method of class B according to MRO
+        super().feature()               #this calls Class B feature method according to MRO. B.feature(self) also works
+        A.feature(self)                 # this calls Class A feature method (works even if C doesn't inherit A). but passing "self" in paranthesis is a must.
         print("in C init")
 
 objC = C()
 
 """
 output:
-in A init
-in B init
+in B feature
+in A feature
 in C init
 """
